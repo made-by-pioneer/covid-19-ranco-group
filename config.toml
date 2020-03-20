@@ -1,4 +1,4 @@
-baseURL = "https://gz-default.netlify.com/"
+baseURL = "https://covid-ranco.netlify.com"
 languageCode = "en-us"
 theme = "site-theme"
 title = "COVID19 VIRAL SUPPLIES"
