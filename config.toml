@@ -1,0 +1,119 @@
+baseURL = "https://gz-default.netlify.com/"
+languageCode = "en-us"
+theme = "site-theme"
+title = "COVID19 VIRAL SUPPLIES"
+enableRobotsTXT = true
+
+[[menu.desktop]]
+    identifier = "menuDesktopOne"
+    name = "Menu Item 1"
+    url = "/page-1/"
+    weight = 1
+    post = "hover"
+        [[menu.desktop]]
+            identifier = "menuChildOne"
+            name = "Menu Child 1"
+            url = "/page-11/"
+            weight = 1
+            post = "hover"
+            parent = "menuDesktopOne"
+                [[menu.desktop]]
+                    identifier = "submenuOne"
+                    name = "Submenu item"
+                    url = "/testinner/"
+                    weight = 1
+                    parent = "menuChildOne"
+[[menu.desktop]]
+    identifier = "menuDesktopTwo"
+    name = "Menu Item 2"
+    url = ""
+    weight = 2
+        [[menu.desktop]]
+            identifier = "devElements"
+            name = "Dev Elements"
+            url = "/devele/"
+            weight = 1
+            parent = "menuDesktopTwo"
+[[menu.desktop]]
+    identifier = "menu-desktop-3"
+    name = "Menu Item 3"
+    url = "#bottom"
+    pre = "scroll-to-link"
+    weight = 3
+[[menu.desktop]]
+    identifier = "menu-desktop-4"
+    name = "Menu Item 4"
+    url = "/page-4"
+    weight = 4
+[[menu.mobile]]
+    identifier = "menu-mobile-1"
+    name = "Menu Item 1"
+    url = "/page-1"
+    weight = 1
+        [[menu.mobile]]
+            identifier = "menu-child-1"
+            name = "Menu Child 1"
+            url = "/page-11/"
+            weight = 1
+            parent = "menu-mobile-1"
+[[menu.mobile]]
+    identifier = "menu-mobile-2"
+    name = "Menu Item 2"
+    url = "/page-2"
+    weight = 2
+[[menu.mobile]]
+    identifier = "menu-mobile-3"
+    name = "Menu Item 3"
+    url = "/page-3"
+    weight = 3
+[params.tracking]
+    cloudinary_url = "https://res.cloudinary.com/pioneer-design/image/upload"
+[params.publishing_settings]
+    site_in_production = false
+
+[mediaTypes]
+  [mediaTypes."text/noExt"]
+    suffixes = ""
+
+[sitemap]
+    filename = "sitepages.xml"
+
+[outputFormats]
+    [outputFormats.sitemapindex]
+        baseName = "sitemapindex"
+        isPlainText = false
+        mediaType = "application/xml"
+        path = "/"
+    [outputFormats.sitepages]
+        baseName = "sitepages"
+        isPlainText = false
+        mediaType = "application/xml"
+        path = "/"
+    [outputFormats.siteposts]
+        baseName = "siteposts"
+        isPlainText = false
+        mediaType = "application/xml"
+        path = "/"
+    [outputFormats.redirects]
+        baseName = "_redirects"
+        isPlainText = true
+        mediaType = "text/noExt"
+        path = "/"
+    [outputFormats.Algolia]
+        baseName = "algolia"
+        isPlainText = true
+        mediaType = "application/json"
+        notAlternative = true
+
+[outputs]
+  home = ["HTML", "sitemapindex", "sitepages", "siteposts", "RSS", "redirects", "Algolia"]
+
+[params.algolia]
+    appId = ""
+    search_key = ""
+    index_name = ""
+
+[params.extra_tools]
+    algolia_search = false
+    font_awesome = false
+    floating_header = false

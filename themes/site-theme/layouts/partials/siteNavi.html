@@ -1,0 +1,20 @@
+<nav id="navigation-wrapper" class="w-1/2 ml-auto text-right">
+
+<div class="py-3 desktop-menu">
+  {{ $currentNode := . }}
+  {{ range .Site.Menus.desktop }}
+    {{ if .HasChildren }}
+      {{ partial "menu/desktop/if-children.html" . }}
+    {{ else }}
+      <a class="{{if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }} active{{end}}{{ if .Pre }}scroll{{ else }}{{ end }} pr-8 select-none desktop-menu-item" href="{{.URL}}">{{ .Name }}</a>
+    {{ end }}
+  {{ end }}
+</div>
+
+<a id="mobile-menu" class="scroll text-right" href="#headerFloatingHeightFix">
+  <div id="mobile-menu-button" class="mobile-menu-button">
+    <i class="text-3xl md:text-5xl fas fa-bars"></i>
+  </div>
+</a>
+
+</nav>

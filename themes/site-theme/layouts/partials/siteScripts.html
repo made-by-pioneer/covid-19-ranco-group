@@ -1,0 +1,36 @@
+{{ $script := .Site.Data.webpack_assets.app }}
+{{ with $script.js }}
+  <script defer src="{{ absURL (printf "%s%s" "/dist/" .) }}"></script>
+{{ end }}
+
+{{ if eq .Site.Params.extra_tools.floating_header true }}
+<script>
+var st = window.pageYOffset || document.documentElement.scrollTop;
+const header = document.querySelector(".header-container")
+const headerHeightFix = document.querySelector("#headerFloatingHeightFix")
+const headerHeight = header.offsetHeight
+const addHeaderFloat = () => header.classList.add("fixed", "z-50", "w-full", "bg-white", "shadow-lg", "header-fixed", "-mt-2");
+const addHeaderfloatTop = () => header.style.top=st + 'px';
+const addHeaderHeightFix = () => headerHeightFix.classList.add("h-20")
+const removeHeaderFloat = () => header.classList.remove("fixed", "shadow-lg", "header-fixed", "-mt-2");
+const removeHeaderHeightFix = () => headerHeightFix.classList.remove("h-20")
+
+var lastScrollTop = 0;
+window.addEventListener("scroll", function(){ 
+   var st = window.pageYOffset || document.documentElement.scrollTop; 
+   if (st > lastScrollTop){
+     
+     header.style.top=-78 + 'px';
+   }
+   else if (st === 0){
+     removeHeaderFloat(), removeHeaderHeightFix()
+   }
+   else {
+     addHeaderFloat(), addHeaderHeightFix(),
+     header.style.top=-78 + 76 + 'px';
+   }
+   lastScrollTop = st <= 0 ? 0 : st;
+}, false);
+</script>
+{{ else }}
+{{ end }}
