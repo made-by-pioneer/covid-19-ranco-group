@@ -164,7 +164,7 @@ for (let i = 0; i < products.length; i++) {
     if (productArrayID.sizeNeeded !== productSize || productArrayID.quanNeeded !== productQuan) {
         productArrayID.quanNeeded = productQuan
         productArrayID.sizeNeeded = productSize
-        getQuoteForm.innerHTML = '<input type="text" class="hidden" name="' + productHtmlName + '-needed" value="' + productQuan + '"><input type="text" class="hidden" name="' + productHtmlName + '-size" value="' + productSize + '">'
+        getQuoteForm.innerHTML = '<input type="text" class="hidden" name="' + productHtmlName.split(" ").join("-").toLowerCase().replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '') + '-needed" value="' + productQuan + '"><input type="text" class="hidden" name="' + productHtmlName.split(" ").join("-").toLowerCase().replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '') + '-size" value="' + productSize + '">'
         getVisualQuote.innerHTML = '<div class="flex flex-wrap w-full py-5 border-b border-black"><div class="w-1/4 text-center"><span class="border border-black py-1 px-3">' + productQuan + '</span></div><div class="w-1/2 font-neue">' + productHtmlName + '<br><p class="pt-2 font-robo text-2xs">' + productDes + '</p></div><div class="w-1/4 text-center"><button class="border border-black py-1 px-3" onclick="' + productHtmlName.split(" ").join("-").split("-").join("").toLowerCase().replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '') + 'removeQuote()">X</button></div></div>'
     }
         
