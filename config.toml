@@ -117,3 +117,6 @@ enableRobotsTXT = true
     algolia_search = false
     font_awesome = false
     floating_header = false
+
+[markup.goldmark.renderer]
+unsafe= true

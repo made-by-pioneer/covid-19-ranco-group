@@ -7,6 +7,8 @@ module.exports = {
 
       'color-F7F7F7': '#F7F7F7',
       'color-274D79': '#274D79',
+      'color-DDF0EA': '#DDF0EA',
+      'color-508e7b': '#508e7b',
       transparent: 'transparent',
 
       black: '#000',
@@ -56,12 +58,16 @@ module.exports = {
       xxl: '1440px',
     },
     fontFamily: {
-      'neue': [
-        'neue-haas-unica',
+      'titling': [
+        'titling-gothic-fb-wide',
         'sans-serif',
       ],
-      'robo': [
-        'roboto-mono',
+      'ibm-conds': [
+        'ibm-plex-sans-condensed',
+        'sans-serif',
+      ],
+      'ibm-mono': [
+        'ibm-plex-mono',
         'monospace',
       ],
     },
@@ -75,6 +81,7 @@ module.exports = {
       '2xl': '1.5rem',
       '3xl': '1.875rem',
       '4xl': '2.25rem',
+      '4.5xl': '2.5rem',
       '5xl': '3rem',
       '6xl': '4rem',
     },

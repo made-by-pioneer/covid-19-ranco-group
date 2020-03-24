@@ -1,29 +1,99 @@
 {{ define "main" }}
 
 <style>
-
+.highlighted-product {
+    width: 100% !important;
+}
+.highlighted-product #product {
+    border-width: 2px !important;
+}
+.highlighted-product img {
+    width: 25% !important;
+    padding: 40px 60px 40px 60px !important;
+}
+.highlighted-product .product-content {
+    width: 75% !important;
+    background-color: white !important;
+    padding: 40px 60px 40px 60px !important;
+    font-family: "ibm-plex-sans-condensed",sans-serif;
+    text-align: left !important;
+    font-size: 20px;
+    line-height: 32px;
+}
+.highlighted-product ul {
+    list-style: inside;
+}
+.highlighted-product #title {
+    font-size: 40px !important;
+}
+.highlighted-product #des {
+    display: none;
+}
+.highlighted-product h4 {
+    font-family: "titling-gothic-fb-wide",sans-serif;
+    font-size: 20px !important;
+    font-weight: bold;
+    padding-top: 40px;
+}
+.highlighted-product h5 {
+    padding: 32px 0 24px 0;
+}
+.highlighted-product h6 {
+    font-family: "titling-gothic-fb-wide",sans-serif;
+    font-size: 16px !important;
+    font-weight: bold;
+    color: #508e7b;
+    padding-top: 8px;
+    padding-bottom: 15px;
+}
+.highlighted-product .quantity-box {
+    width: auto !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+.highlighted-product #quantity {
+    padding: 0 .5rem 0 .5rem !important;
+    margin-top: 0 !important;
+}
+.highlighted-product #quote-button {
+    width: auto !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 30px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+.highlighted-product #pallet-notice {
+    display: none;
+}
+.highlighted-product a {
+    color: #508e7b;
+    text-decoration: underline;
+}
 </style>
 
-<div class="flex flex-wrap w-11/12 sm:w-2/3 lg:w-1/3 mx-auto sm:text-center pb-32">
-    <h1 class="w-full font-neue text-3xl font-medium pb-5 leading-tight">COVID19 Pandemic <br> Supplies In One Place</h1>
-    <p class="w-full font-neue text-base">We’re providing pandemic supplies and protective equipment for city governments, municipalities, state departments, and emergency management personnel to help you combat COVID19.</p>
+<div class="flex flex-wrap w-11/12 sm:w-2/3 lg:w-1/2 mx-auto sm:text-center pb-20">
+    <h1 class="w-full font-titling text-4.5xl font-bold pb-5 leading-tight">COVID19 Pandemic <br> Supplies In One Place</h1>
+    <p class="w-full font-ibm-conds text-xl">Providing pandemic supplies and protective equipment for city governments, municipalities, state departments, and emergency management personnel to help you combat COVID19.</p>
 </div>
 
-<div class="flex flex-wrap w-full lg:w-3/4 xxl:w-2/3 mx-auto">
+<div class="flex flex-wrap w-full lg:w-4/5 max-w-6xl mx-auto px-2">
 {{ range where .Site.Pages "Type" "products" }}
-<div class="flex flex-wrap w-full sm:w-2/3 md:w-1/2 xl:w-1/3 mx-auto p-4 product-seperater">
+<div class="flex flex-wrap items-start w-full sm:w-2/3 md:w-1/2 xl:w-1/3 mx-auto p-4 product-seperater {{ if eq .Params.highlight true }} highlighted-product {{ else }}{{ end }}">
     <div id="product" class="flex flex-wrap w-full border border-black">
-        <div class="flex flex-wrap w-full mx-auto text-center">
+        <div class="flex flex-wrap w-full mx-auto text-center {{ if eq .Params.highlight true }} flex-row-reverse {{ else }}{{ end }}">
             <img class="w-56 mx-auto p-6" src="{{ .Site.Params.tracking.cloudinary_url }}{{ .Params.image }}">
-            <div class="flex flex-wrap bg-color-F7F7F7 p-8">
-                <h2 id="title" class="w-full font-neue text-base font-medium">{{ .Params.name }}</h2>
-                <p id="des" class="w-full font-robo text-2xs pt-2 pb-6">{{ .Params.description }}</p>
+            <div class="flex flex-wrap items-start bg-color-DDF0EA p-8 product-content">
+                <h2 id="title" class="w-full font-titling text-base font-bold">{{ .Params.name }}</h2>
+                {{ if eq .Params.highlight true }} {{ .Content | safeHTML }} {{ else }}{{ end }}
+                <p id="des" class="w-full font-ibm-conds text-2xs pt-2 pb-2">{{ .Params.description }}</p>
+                <p id="pallet-notice" class="w-full font-ibm-conds text-xs pt-2 pb-6">Sold by the pallet</p>
                 <div class="flex flex-wrap items-center w-full">
                     {{ if .Params.sizes }}
                         {{ if not (in .Params.sizes "N/A")}}
-                        <div class="w-1/2 text-2xs">
-                            <span class="font-neue tracking-widest uppercase">Size</span>
-                            <select id="size" class="bg-white border border-black font-neue p-2 m-4">
+                        <div class="flex flex-wrap w-1/2 mx-auto">
+                            <span class="w-full font-ibm-mono text-xs text-center uppercase">Size</span>
+                            <select id="size" class="w-2/3 bg-white border border-black font-ibm-mono text-xs mx-auto m-1 py-1 px-2">
                                     {{ range .Params.sizes }}
                                     <option value="{{ . }}" class="">{{ . }}</option>
                                     {{ end }}
@@ -37,12 +107,12 @@
                         </div>
                         {{ end }}
                     {{ else }}{{ end }}
-                    <div class="w-1/2 mx-auto text-2xs">
-                        <span class="font-neue tracking-widest uppercase">QTY</span>
-                        <input id="quantity" name="quantity" type="number" min="1" value="1" class="w-12 bg-white border border-black font-neue p-2 m-4">
+                    <div class="flex flex-wrap w-1/2 mx-auto quantity-box">
+                        <span class="w-full font-ibm-mono text-xs text-center uppercase">QTY</span>
+                        <input id="quantity" name="quantity" type="number" min="1" value="1" class="w-2/3 bg-white border border-black font-ibm-mono text-xs mx-auto m-1 py-1 px-2">
                     </div>
+                    <button id="quote-button" class="w-auto bg-white border border-black font-titling text-xs uppercase mt-10 mx-auto py-1 px-5">Add to Quote</button>
                 </div>
-                <button id="quote-button" class="w-auto bg-white border border-black font-neue uppercase mt-5 mx-auto py-1 px-5">Add to Quote</button>
             </div>
             <script>
                 {{ .Params.name | urlize | replaceRE "-" "" | safeJS }}removeQuote = () => {
