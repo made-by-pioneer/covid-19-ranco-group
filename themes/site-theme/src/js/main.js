@@ -31,3 +31,26 @@ function scrollAnchors(e, respond = null) {
 }
 
 // END
+
+let products = document.querySelectorAll("#product");
+
+for (let i = 0; i < products.length; i++) {
+    let productHtml = product[i];
+    let productUpdate = productHtml.querySelector("button");
+    productUpdate.addEventListener('click', function() { 
+        let productHtmlName = productHtml.querySelector("#title").innerText;
+        let getQuoteForm = document.getElementById(productHtmlName + "-quote");
+        let getVisualQuote = document.getElementById(productHtmlName + "-quote-visual");
+        let productArrayID = quoteQuans.find( ({ productName }) => productName === productHtmlName );
+        let productDes = productHtml.querySelector("#des").innerText;
+        let productQuan = productHtml.querySelector("#quantity").value;
+        let productSize = productHtml.querySelector("#size").value;
+    if (productArrayID.sizeNeeded !== productSize || productArrayID.quanNeeded !== productQuan) {
+        productArrayID.quanNeeded = productQuan
+        productArrayID.sizeNeeded = productSize
+        getQuoteForm.innerHTML = '<input type="hidden" name="' + productHtmlName.split(" ").join("-").toLowerCase().replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '') + '-needed" value="' + productQuan + '"><input type="hidden" name="' + productHtmlName.split(" ").join("-").toLowerCase().replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '') + '-size" value="' + productSize + '">'
+        getVisualQuote.innerHTML = '<div class="flex flex-wrap w-full py-5 border-b border-black"><div class="w-1/4 text-center"><span class="border border-black py-1 px-3">' + productQuan + '</span></div><div class="w-1/2 font-ibm-conds text-xl">' + productHtmlName + '<br><p class="pt-2 font-ibm-mono text-xs">' + productDes + '</p></div><div class="w-1/4 text-center"><button class="border border-black py-1 px-3" onclick="' + productHtmlName.split(" ").join("-").split("-").join("").toLowerCase().replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '') + 'removeQuote()">X</button></div></div>'
+    }
+        
+    }, false);
+}
