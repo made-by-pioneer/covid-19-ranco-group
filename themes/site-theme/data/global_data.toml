@@ -15,7 +15,7 @@ zip = 30458
 [email]
 primary = "example@example.com"
 [tracking]
-google_analytics = ""
+google_analytics = "UA-121813241-33"
 [social]
 facebook = ""
 insta = ""
