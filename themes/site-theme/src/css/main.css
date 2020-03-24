@@ -1,68 +1,8 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-@import 'flickity/css/flickity.css';
-
-.mobile-menu-toggle {margin-top: 0px !important;}
-
-.mobile-menu {
-  position:absolute;
-  width:100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  margin-top: -570px;
-  height: 450px;
-  transition: .5s;
-}
-
-.mobile-menu-button button {
-  background-color: transparent;
-  border-color: transparent;
-}
-
-.desktop-menu {
-  display:none;
-}
-
-@media screen and (min-width:992px) {
-  .mobile-menu-button {
-    display: none;
-  }
-  .desktop-menu {
-    display:block;
-  }
-}
 
 .body-wrapper {
   max-width: 1920px;
   margin: auto;
-}
-
-/* Elevator css */
-
-.elevator-button {
-  position: fixed;
-  font-size: 30px;
-  right: 5%;
-  bottom: 10%;
-  transition: .2s;
-}
-
-.hidegotoTop {
-  right: -100px !important;
-  transition: .2s;
-}
-
-.elevator-button:hover {
-  cursor: pointer;
-  padding-bottom: 5px;
-}
-
-/* default backgrounds */
-
-#thank-you {
-  background-image: url("{{ .Site.Params.utility_images.thank_you_background }}");
-  background-size: auto;
-  background-repeat: no-repeat;
 }
