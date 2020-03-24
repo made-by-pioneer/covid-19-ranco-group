@@ -167,7 +167,7 @@
                     var getQuoteForm = document.getElementById("{{ .Params.name }}-quote");
                     var getVisualQuote = document.getElementById("{{ .Params.name }}-quote-visual");
                     product.quanNeeded = 0
-                    getQuoteForm.innerHTML = '<input class="hidden" name="{{ .Params.name | urlize }}-needed" disabled="disabled">{{ if .Params.sizes }}{{ if not (in .Params.sizes "N/A")}}<input class="hidden" name="{{ .Params.name | urlize }}-size" disabled="disabled">{{ else }}{{ end }}{{ else }}{{ end }}'
+                    getQuoteForm.innerHTML = ''
                     getVisualQuote.innerHTML = ''
                 }
             </script>
@@ -244,10 +244,10 @@
     </div>
     {{ range where .Site.Pages "Type" "products" }}
         <div id="{{ .Params.name }}-quote">
-            <input class="hidden" name="{{ .Params.name | urlize }}-needed" disabled="disabled">
+            <input type="hidden" name="{{ .Params.name | urlize }}-needed" value="">
             {{ if .Params.sizes }}
                 {{ if not (in .Params.sizes "N/A")}}
-                <input class="hidden" name="{{ .Params.name | urlize }}-size" disabled="disabled">
+                <input type="hidden" name="{{ .Params.name | urlize }}-size" value="">
                 {{ else }}
                 {{ end }}
             {{ else }}{{ end }}
