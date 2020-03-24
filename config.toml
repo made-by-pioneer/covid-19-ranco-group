@@ -1,7 +1,7 @@
 baseURL = "https://covid-ranco.netlify.com"
 languageCode = "en-us"
 theme = "site-theme"
-title = "COVID19 VIRAL SUPPLIES"
+title = "Government Disaster Procurement Specialist"
 enableRobotsTXT = true
 
 [[menu.desktop]]

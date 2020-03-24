@@ -2,13 +2,15 @@
   
 </style>
 
-<footer class="flex flex-wrap w-full bg-color-274D79 mt-40 py-12 lg:py-5 px-8 lg:px-16">
-  <div class="flex flex-wrap w-full font-neue mx-auto">
+<footer class="flex flex-wrap w-full bg-color-123228 mt-40 py-12 lg:py-5 px-8 lg:px-16">
+  <div class="flex flex-wrap items-center w-full font-neue mx-auto">
     <div class="w-full lg:w-1/5 mx-auto pb-12 lg:pb-0">
-      <p class="text-lg text-white leading-relaxed tracking-wider">{{ .Site.Title }}</p>
+      <a href="/" id="brand" class="w-full sm:w-1/2 text-black">
+        <img class="w-48" src="/pageimg/Footer Logo.png">
+      </a>
     </div>
     <div class="w-full lg:w-4/5 text-sm text-white text-left lg:text-right lg:pl-5 leading-loose">
-      <p class="text-base text-white leading-relaxed tracking-wider">&copy; {{ now.Format "January 2, 2006" }} | The Ranco Group</p>
+      <p class="font-ibm-mono text-2xs text-white leading-tight tracking-wider">&copy; {{ now.Format "January 2, 2006" }} | {{ .Site.Title }}</p>
     </div>
   </div>
 </footer>
