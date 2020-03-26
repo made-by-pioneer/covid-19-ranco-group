@@ -9,6 +9,7 @@
 }
 .highlighted-product img {
     width: 100% !important;
+    height: auto !important;
     padding: 40px 60px 40px 60px !important;
     max-width: 20rem!important;
 }
@@ -132,7 +133,7 @@
 }
 .highlighted-product img {
     width: 25% !important;
-    height: 470px;
+    height: 470px !important;
     max-width: 50rem!important;
 }
 .highlighted-product .product-content {
@@ -141,7 +142,7 @@
 }
 @media screen and (min-width:1440px) {
 .highlighted-product img {
-    height: 600px;
+    height: 600px !important;
 }
 }
 </style>
@@ -156,9 +157,9 @@
 <div class="flex flex-wrap items-stretch content-stretch w-full sm:w-2/3 md:w-1/2 xl:w-1/3 mx-auto p-4 product-seperater {{ if eq .Params.highlight true }} highlighted-product {{ else }}{{ end }}">
     <div id="product" class="flex flex-wrap w-full border border-black">
         <div class="flex flex-wrap w-full mx-auto text-center {{ if eq .Params.highlight true }} flex-row-reverse {{ else }}{{ end }}">
-            <img class="w-56 mx-auto p-6" src="{{ .Site.Params.tracking.cloudinary_url }}/w_200{{ .Params.image }}">
+            <img class="w-48 h-56 mx-auto p-6" src="{{ .Site.Params.tracking.cloudinary_url }}/w_200{{ .Params.image }}">
             <div class="flex flex-wrap bg-color-DDF0EA p-8 product-content">
-                <h2 id="title" class="w-full font-titling text-base font-bold">{{ .Params.name }}</h2>
+                <h2 id="title" class="w-full font-titling text-base font-bold leading-none pb-2">{{ .Params.name }}</h2>
                 {{ if eq .Params.highlight true }} {{ .Content | safeHTML }} {{ else }}{{ end }}
                 <p id="des" class="w-full font-ibm-conds text-xs pt-2 pb-2">{{ .Params.description }}</p>
                 <p id="pallet-notice" class="w-full font-ibm-conds text-xs font-bold pt-2 pb-6">Sold by the pallet</p>
@@ -193,7 +194,7 @@
                 </div>
             </div>
             <script>
-                {{ .Params.name | urlize | replaceRE "-" "" | safeJS }}removeQuote = () => {
+                {{ .Params.name | urlize | replaceRE "-" "" | replaceRE "/" "" | safeJS }}removeQuote = () => {
                     const product = quoteQuans.find( ({ productName }) => productName === "{{ .Params.name }}" );
                     var getQuoteForm = document.getElementById("{{ .Params.name }}-quote");
                     var getVisualQuote = document.getElementById("{{ .Params.name }}-quote-visual");
@@ -305,6 +306,10 @@ const quoteQuans = [
 },
 {{ end }}
 ];
+
+let productBoxHeights = [
+
+]
 </script>
 
 {{ end }}

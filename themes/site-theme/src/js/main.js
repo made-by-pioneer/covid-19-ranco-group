@@ -72,3 +72,181 @@ for (let i = 0; i < products.length; i++) {
 	}
     }, false);
 }
+
+// make box heights uniform
+
+function circumference(r) {
+  return parseFloat(r) * 2.0 * Math.PI;
+}
+
+if (window.innerWidth < 1200) {
+
+let products = document.querySelectorAll("#product");
+for (let i = 0; i < 2; i++) {
+    var offset = 1;
+    var offsettedArrayValue = (i + offset) % products.length;
+    let productHtml = products[offsettedArrayValue];
+    let productBox = productHtml.querySelector("#des");
+    let computedStyle = getComputedStyle(productBox);
+    let boxHeightPX = computedStyle.height
+    if (boxHeightPX === 'auto') {
+        continue;
+    }
+    let boxHeightNumsNotRounded = Number(boxHeightPX.replace(/px$/, ''))
+    let boxHeightNumRounded = Math.round(boxHeightNumsNotRounded)
+    productBoxHeights.push(boxHeightNumRounded);
+    console.log(productBoxHeights)
+}
+
+for (let i = 0; i < 2; i++) {
+    var offset = 1;
+    var offsettedArrayValue = (i + offset) % products.length;
+    let productHtml = products[offsettedArrayValue];
+    let productBox = productHtml.querySelector("#des");
+    let heightestDesBox = Math.max.apply(Math, productBoxHeights)
+    productBox.setAttribute( 'style', 'height:' + heightestDesBox + 'px !important' );
+}
+
+productBoxHeights = [];
+
+for (let i = 0; i < 2; i++) {
+    var offset = 3;
+    var offsettedArrayValue = (i + offset) % products.length;
+    let productHtml = products[offsettedArrayValue];
+    let productBox = productHtml.querySelector("#des");
+    let computedStyle = getComputedStyle(productBox);
+    let boxHeightPX = computedStyle.height
+    if (boxHeightPX === 'auto') {
+        continue;
+    }
+    let boxHeightNumsNotRounded = Number(boxHeightPX.replace(/px$/, ''))
+    let boxHeightNumRounded = Math.round(boxHeightNumsNotRounded)
+    productBoxHeights.push(boxHeightNumRounded);
+    console.log(productBoxHeights)
+}
+
+for (let i = 0; i < 2; i++) {
+    var offset = 3;
+    var offsettedArrayValue = (i + offset) % products.length;
+    let productHtml = products[offsettedArrayValue];
+    let productBox = productHtml.querySelector("#des");
+    let heightestDesBox = Math.max.apply(Math, productBoxHeights)
+    productBox.setAttribute( 'style', 'height:' + heightestDesBox + 'px !important' );
+}
+
+productBoxHeights = [];
+
+for (let i = 0; i < 2; i++) {
+    var offset = 5;
+    var offsettedArrayValue = (i + offset) % products.length;
+    let productHtml = products[offsettedArrayValue];
+    let productBox = productHtml.querySelector("#des");
+    let computedStyle = getComputedStyle(productBox);
+    let boxHeightPX = computedStyle.height
+    if (boxHeightPX === 'auto') {
+        continue;
+    }
+    let boxHeightNumsNotRounded = Number(boxHeightPX.replace(/px$/, ''))
+    let boxHeightNumRounded = Math.round(boxHeightNumsNotRounded)
+    productBoxHeights.push(boxHeightNumRounded);
+    console.log(productBoxHeights)
+}
+
+for (let i = 0; i < 2; i++) {
+    var offset = 5;
+    var offsettedArrayValue = (i + offset) % products.length;
+    let productHtml = products[offsettedArrayValue];
+    let productBox = productHtml.querySelector("#des");
+    let heightestDesBox = Math.max.apply(Math, productBoxHeights)
+    productBox.setAttribute( 'style', 'height:' + heightestDesBox + 'px !important' );
+}
+
+}
+
+function circumference(r) {
+  return parseFloat(r) * 2.0 * Math.PI;
+}
+
+if (window.innerWidth > 1200) {
+
+let products = document.querySelectorAll("#product");
+for (let i = 0; i < 3; i++) {
+    var offset = 1;
+    var offsettedArrayValue = (i + offset) % products.length;
+    let productHtml = products[offsettedArrayValue];
+    let productBox = productHtml.querySelector("#des");
+    let computedStyle = getComputedStyle(productBox);
+    let boxHeightPX = computedStyle.height
+    if (boxHeightPX === 'auto') {
+        continue;
+    }
+    let boxHeightNumsNotRounded = Number(boxHeightPX.replace(/px$/, ''))
+    let boxHeightNumRounded = Math.round(boxHeightNumsNotRounded)
+    productBoxHeights.push(boxHeightNumRounded);
+    console.log(productBoxHeights)
+}
+
+for (let i = 0; i < 3; i++) {
+    var offset = 1;
+    var offsettedArrayValue = (i + offset) % products.length;
+    let productHtml = products[offsettedArrayValue];
+    let productBox = productHtml.querySelector("#des");
+    let heightestDesBox = Math.max.apply(Math, productBoxHeights)
+    productBox.setAttribute( 'style', 'height:' + heightestDesBox + 'px !important' );
+}
+
+productBoxHeights = [];
+
+for (let i = 0; i < 3; i++) {
+    var offset = 4;
+    var offsettedArrayValue = (i + offset) % products.length;
+    let productHtml = products[offsettedArrayValue];
+    let productBox = productHtml.querySelector("#des");
+    let computedStyle = getComputedStyle(productBox);
+    let boxHeightPX = computedStyle.height
+    if (boxHeightPX === 'auto') {
+        continue;
+    }
+    let boxHeightNumsNotRounded = Number(boxHeightPX.replace(/px$/, ''))
+    let boxHeightNumRounded = Math.round(boxHeightNumsNotRounded)
+    productBoxHeights.push(boxHeightNumRounded);
+    console.log(productBoxHeights)
+}
+
+for (let i = 0; i < 3; i++) {
+    var offset = 4;
+    var offsettedArrayValue = (i + offset) % products.length;
+    let productHtml = products[offsettedArrayValue];
+    let productBox = productHtml.querySelector("#des");
+    let heightestDesBox = Math.max.apply(Math, productBoxHeights)
+    productBox.setAttribute( 'style', 'height:' + heightestDesBox + 'px !important' );
+}
+
+productBoxHeights = [];
+
+for (let i = 0; i < 3; i++) {
+    var offset = 8;
+    var offsettedArrayValue = (i + offset) % products.length;
+    let productHtml = products[offsettedArrayValue];
+    let productBox = productHtml.querySelector("#des");
+    let computedStyle = getComputedStyle(productBox);
+    let boxHeightPX = computedStyle.height
+    if (boxHeightPX === 'auto') {
+        continue;
+    }
+    let boxHeightNumsNotRounded = Number(boxHeightPX.replace(/px$/, ''))
+    let boxHeightNumRounded = Math.round(boxHeightNumsNotRounded)
+    productBoxHeights.push(boxHeightNumRounded);
+    console.log(productBoxHeights)
+}
+
+for (let i = 0; i < 3; i++) {
+    var offset = 7;
+    var offsettedArrayValue = (i + offset) % products.length;
+    let productHtml = products[offsettedArrayValue];
+    let productBox = productHtml.querySelector("#des");
+    let heightestDesBox = Math.max.apply(Math, productBoxHeights)
+    productBox.setAttribute( 'style', 'height:' + heightestDesBox + 'px !important' );
+}
+
+}
