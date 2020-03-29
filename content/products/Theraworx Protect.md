@@ -19,4 +19,4 @@ Theraworx Protect Foam offers a fast, safe, effective way to cleanse and protect
 
 Visit [here](https://tinyurl.com/uqamx7v) to learn more about how Theraworx is safe enough for daily use on babies at St. Jude Children’s Research Hospital.
 
-##### Sold by the pallet (1,680 bottles per pallet).
+##### Sold by the case (24 bottles per case).
