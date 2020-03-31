@@ -76,6 +76,9 @@ for (let i = 0; i < products.length; i++) {
 // make box heights uniform
 
 function repeatThisManyTimes() {
+    if (window.innerWidth <= 767) {
+        return 0;
+    }
     if (window.innerWidth < 1200) {
         return 2;
     }
