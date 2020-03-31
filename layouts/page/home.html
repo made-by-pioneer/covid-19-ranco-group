@@ -161,7 +161,7 @@
             <div class="flex flex-wrap bg-color-DDF0EA p-8 product-content">
                 <h2 id="title" class="w-full font-titling text-base font-bold leading-none pb-2">{{ .Params.name }}</h2>
                 {{ if eq .Params.highlight true }} {{ .Content | safeHTML }} {{ else }}{{ end }}
-                <p id="des" class="w-full font-ibm-conds text-xs pt-2 pb-2">{{ .Params.description }}</p>
+                <p id="des" class="w-full font-ibm-conds text-sm lg:text-xs pt-2 pb-2">{{ .Params.description }}{{ if .Params.des_note }}<br><br><span>{{ .Params.des_note }}</span>{{ else }}{{ end }}</p>
                 <p id="pallet-notice" class="w-full font-ibm-conds text-xs font-bold pt-2 pb-6">Sold by the pallet</p>
                 <div class="flex flex-wrap items-center w-full">
                     {{ if .Params.sizes }}
